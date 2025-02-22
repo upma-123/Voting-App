@@ -79,33 +79,3 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
-
-
-
-// //self practice :
-
-// userSchema.pre('save', async function(next){
-// const person = User;
-
-// if(!User.isModified('password')) return next();
-
-// try {
-  
-//   const salt = await bcrypt.genSalt(10);
-//   const hashedPassword = await bcrypt.hash( User.password, salt);
-
-//   User.password = hashedPassword;
-//   next();
-// } catch (error) {
-//   return next(err);
-// }
-// })
-
-// userSchema.methods.comparePassword = async function(password) {
-//   try {
-//     const isMatch = await bcrypt.compare(password, this.password);
-//     return isMatch;
-//   } catch (error) {
-//     throw err;
-//   }
-// }
